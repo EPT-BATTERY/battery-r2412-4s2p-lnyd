@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EU Declaration of Conformity - R2412-4S2P-LNYD</title>
+<title>Battery Product Information - R2412-4S2P-LNYD</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -25,7 +25,7 @@ body {
 }
 
 .header {
-    background: linear-gradient(135deg, #4a148c, #7b1fa2);
+    background: linear-gradient(135deg, #1a5276, #2874a6);
     color: #fff;
     padding: 30px 40px;
     text-align: center;
@@ -42,8 +42,11 @@ body {
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.5px;
-    background: linear-gradient(135deg, #6a1b9a, #8e44ad);
 }
+
+.section-i .section-header { background: linear-gradient(135deg, #1a5276, #2e86c1); }
+.section-ii .section-header { background: linear-gradient(135deg, #1e8449, #27ae60); }
+.section-iii .section-header { background: linear-gradient(135deg, #6a1b9a, #8e44ad); }
 
 .section-body { padding: 24px 30px; }
 
@@ -77,7 +80,7 @@ body {
 
 .item-value { color: #333; font-size: 14px; flex: 1; }
 
-.item-value a { color: #8e44ad; text-decoration: none; }
+.item-value a { color: #2874a6; text-decoration: none; }
 .item-value a:hover { text-decoration: underline; }
 
 .number-cell {
@@ -86,14 +89,17 @@ body {
     justify-content: center;
     width: 26px;
     height: 26px;
-    background: #f4ecf7;
-    color: #8e44ad;
+    background: #e8f4fd;
+    color: #2874a6;
     border-radius: 50%;
     font-size: 13px;
     font-weight: 700;
     margin-right: 10px;
     flex-shrink: 0;
 }
+
+.section-ii .number-cell { background: #eafaf1; color: #27ae60; }
+.section-iii .number-cell { background: #f4ecf7; color: #8e44ad; }
 
 .item-block {
     display: flex;
@@ -113,16 +119,7 @@ body {
 
 .item-block-desc { color: #555; font-size: 13px; }
 
-.legislation-list { list-style: none; margin-top: 6px; }
-
-.legislation-list li {
-    padding: 5px 0 5px 4px;
-    font-size: 13px;
-    color: #444;
-    border-bottom: 1px dashed #eee;
-}
-
-.legislation-list li:last-child { border-bottom: none; }
+.para { color: #555; font-size: 13px; margin-top: 8px; }
 
 .image-display { margin: 10px 0; text-align: center; }
 
@@ -134,6 +131,7 @@ body {
 
 .image-display.ce-mark img { max-height: 90px; }
 .image-display.battery-photo img { max-height: 220px; }
+.image-display.recycle-symbol img { max-height: 120px; }
 
 .marking-row {
     display: flex;
@@ -144,7 +142,17 @@ body {
     flex-wrap: wrap;
 }
 
-.scan-section { border-top: 1px solid #eee; padding-top: 18px; margin-top: 10px; }
+.note-box {
+    background: #fef9e7;
+    border-left: 4px solid #f39c12;
+    padding: 12px 16px;
+    margin: 12px 0 0 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: #7d6608;
+}
+
+.scan-section { border-top: 1px solid #eee; padding-top: 18px; margin-top: 14px; }
 
 .scan-title {
     font-weight: 700;
@@ -177,47 +185,95 @@ body {
 <div class="container">
     <!-- Header -->
     <div class="header">
-        <h1>EU Declaration of Conformity</h1>
+        <h1>Battery Product Information</h1>
         <p>Rechargeable Lithium-ion Battery Pack | Model: R2412-4S2P-LNYD | 14.4V / 4800mAh / 69.12Wh</p>
     </div>
 
-    <div class="section">
-        <div class="section-header">Declaration Details</div>
+    <!-- Section I -->
+    <div class="section section-i">
+        <div class="section-header">I. General Information of Batteries</div>
+        <div class="section-body">
+            <div class="sub-block">
+                <div class="item-block">
+                    <span class="number-cell">1</span>
+                    <div class="item-block-content">
+                        <div class="item-block-title">Manufacturer Information</div>
+                        <div class="item-row"><div class="item-label">Battery manufacturer</div><div class="item-value">Shenzhen EPT Battery Co., Ltd.</div></div>
+                        <div class="item-row"><div class="item-label">Trademark</div><div class="item-value">EPT</div></div>
+                        <div class="item-row"><div class="item-label">Manufacturer's address</div><div class="item-value">Building 3, Huancheng Industrial Park, No.41 Dalang North Road, Dalang Street, Longhua District, Shenzhen City, Guangdong Province, P.R.China</div></div>
+                        <div class="item-row"><div class="item-label">E-mail</div><div class="item-value"><a href="mailto:info@ept-battery.com">info@ept-battery.com</a></div></div>
+                        <div class="item-row"><div class="item-label">Postal Code</div><div class="item-value">518109</div></div>
+                        <div class="item-row"><div class="item-label">Website</div><div class="item-value"><a href="https://www.ept-battery.com" target="_blank">www.ept-battery.com</a></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-block">
+                <div class="item-block">
+                    <span class="number-cell">2</span>
+                    <div class="item-block-content">
+                        <div class="item-block-title">Battery Category &amp; Identification</div>
+                        <div class="item-row"><div class="item-label">Battery Category</div><div class="item-value">Portable Battery</div></div>
+                        <div class="item-row"><div class="item-label">Product name</div><div class="item-value">Rechargeable Lithium-ion Battery Pack</div></div>
+                        <div class="item-row"><div class="item-label">Model</div><div class="item-value">R2412-4S2P-LNYD</div></div>
+                        <div class="item-row"><div class="item-label">Nominal voltage</div><div class="item-value">14.4V</div></div>
+                        <div class="item-row"><div class="item-label">Rated capacity</div><div class="item-value">4800mAh</div></div>
+                        <div class="item-row"><div class="item-label">Rated energy</div><div class="item-value">69.12Wh</div></div>
+                        <div class="item-row"><div class="item-label">Batch number/serial number</div><div class="item-value">Batch number: same as date of manufacture (marked on battery body, e.g. YYYY-MM)</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-row"><span class="number-cell">&#8226;</span><div class="item-label">Object of the Declaration</div><div class="item-value">Rechargeable Lithium-ion Battery Pack model no. R2412-4S2P-LNYD<br>Used for sweeping machines</div></div>
+            <div class="item-row"><span class="number-cell">3</span><div class="item-label">Place of Manufacture</div><div class="item-value">Shenzhen, China</div></div>
+            <div class="item-row"><span class="number-cell">4</span><div class="item-label">Date of Manufacture</div><div class="item-value">Refer to the production date marked on the battery body, e.g. YYYY-MM</div></div>
+            <div class="item-row"><span class="number-cell">5</span><div class="item-label">Weight</div><div class="item-value">0.39&plusmn;0.02kg</div></div>
+            <div class="item-row"><span class="number-cell">6</span><div class="item-label">Capacity</div><div class="item-value">4800mAh</div></div>
+            <div class="item-row"><span class="number-cell">7</span><div class="item-label">Chemical Composition</div><div class="item-value">Cobalt,Manganese,Lithium,Natural Graphite, Copper, Nickel.</div></div>
+            <div class="item-row"><span class="number-cell">8</span><div class="item-label">Hazardous Substances (excl. Hg/Cd/Pb)</div><div class="item-value">None of the hazardous substances other than mercury, cadmium or lead are present in the battery above the concentration limits set out in Regulation (EC) No 1907/2006 (REACH) and Regulation (EC) No 1272/2008 (CLP).</div></div>
+            <div class="item-row"><span class="number-cell">9</span><div class="item-label">Usable Extinguishing Agent</div><div class="item-value">Dry powder fire extinguishers, Water-based (water mist) fire extinguisher</div></div>
+            <div class="item-row"><span class="number-cell">10</span><div class="item-label">Critical Raw Materials &gt;0.1% w/w</div><div class="item-value">Elements from the EU Critical Raw Materials list (Regulation (EU) 2024/1252) with mass fraction &gt;0.1% w/w: Cobalt,Manganese,Lithium,Natural Graphite, Copper, Nickel.</div></div>
+        </div>
+    </div>
+
+
+    <!-- Section II -->
+    <div class="section section-ii">
+        <div class="section-header">Ⅱ.Waste Battery Management</div>
+        <div class="section-body">
+            <div class="item-block">
+                <span class="number-cell">1</span>
+                <div class="item-block-content">
+                    <div class="item-block-title">Description of Hazardous Substances</div>
+                    <div class="item-block-desc">This battery does not contain mercury, cadmium or lead exceeding the regulatory limits. The alkaline electrolyte (potassium hydroxide) contained is corrosive and may cause irritation if leaked. Do not short-circuit, disassemble, puncture or throw it into the fire.</div>
+                </div>
+            </div>
+            <div class="item-block">
+                <span class="number-cell">2</span>
+                <div class="item-block-content">
+                    <div class="item-block-title">Correct classification and placement guidelines</div>
+                    <div class="item-block-desc">Do not discard in household garbage or mixed garbage</div>
+                    <div style="display:flex; align-items:flex-start; gap:20px; margin-top:10px; flex-wrap:wrap;">
+                        <div class="image-display recycle-symbol" style="margin:0;">
+                            <img src="data:image/png;base64,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" alt="Waste Battery Recycling Symbol">
+                        </div>
+                        <div class="para" style="flex:1; min-width:240px; margin-top:0;">This symbol indicates that batteries must not be discarded together with unsorted household waste. Make sure the battery is removed safely and discarded at an appropriate recycling facility. Do not improperly dispose of old batteries. Unneeded batteries should be discarded at an appropriate recycling facility. Waste batteries contain hazardous heavy metals and critical raw materials, which cause pollution to soil and water if disposed of in general waste. All waste portable batteries must be collected separately at dedicated collection points for professional recycling, resource recovery and harmless treatment. The battery must be removed and discarded according to local laws and regulations before disposal of the appliance.</div>
+                    </div>
+                    <div class="note-box">Under abusive conditions, liquid may be ejected from the battery. If contact occurs, flush with water and seek medical help.</div>
+                    <div class="note-box">Do not puncture or crush the battery. Do not dispose of swollen or leaking batteries in normal collection boxes; contact local waste authorities for special handling.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Section III -->
+    <div class="section section-iii">
+        <div class="section-header">III. EU Declaration of Conformity</div>
         <div class="section-body">
             <div class="doc-number">
                 <div class="item-label">Document number</div>
                 <div class="item-value">DOC-EPT-R2412-4S2P-LNYD-260911</div>
             </div>
-
-            <div class="item-block">
-                <span class="number-cell">1</span>
-                <div class="item-block-content">
-                    <div class="item-block-title">Battery Category &amp; Identification</div>
-                    <div class="item-row"><div class="item-label">Battery Category</div><div class="item-value">Portable Battery</div></div>
-                    <div class="item-row"><div class="item-label">Product name</div><div class="item-value">Rechargeable Lithium-ion Battery Pack</div></div>
-                    <div class="item-row"><div class="item-label">Model</div><div class="item-value">R2412-4S2P-LNYD</div></div>
-                    <div class="item-row"><div class="item-label">Nominal voltage</div><div class="item-value">14.4V</div></div>
-                    <div class="item-row"><div class="item-label">Rated capacity</div><div class="item-value">4800mAh</div></div>
-                    <div class="item-row"><div class="item-label">Rated energy</div><div class="item-value">69.12Wh</div></div>
-                    <div class="item-row"><div class="item-label">Batch number / serial number</div><div class="item-value">03020200000556 67D E 0 00001 S3B</div></div>
-                </div>
-            </div>
-
-            <div class="item-block">
-                <span class="number-cell">2</span>
-                <div class="item-block-content">
-                    <div class="item-block-title">Manufacturer Information</div>
-                    <div class="item-row"><div class="item-label">Battery manufacturer</div><div class="item-value">Shenzhen EPT Battery Co., Ltd.</div></div>
-                    <div class="item-row"><div class="item-label">Trademark</div><div class="item-value">EPT</div></div>
-                    <div class="item-row"><div class="item-label">Manufacturer's address</div><div class="item-value">Building 3, Huan Cheng Industrial Park, No. 41 Dalang North Road, Dalang Street, Longhua District, Shenzhen City, Guangdong Province, P.R. China</div></div>
-                    <div class="item-row"><div class="item-label">E-mail</div><div class="item-value"><a href="mailto:info@ept-battery.com">info@ept-battery.com</a></div></div>
-                    <div class="item-row"><div class="item-label">Postal Code</div><div class="item-value">518109</div></div>
-                    <div class="item-row"><div class="item-label">Website</div><div class="item-value"><a href="https://www.ept-battery.com" target="_blank">www.ept-battery.com</a></div></div>
-                </div>
-            </div>
-
             <div class="item-row"><span class="number-cell">&#8226;</span><div class="item-label">Importer information</div><div class="item-value">same as the end product</div></div>
-
             <div class="item-block">
                 <span class="number-cell">3</span>
                 <div class="item-block-content">
@@ -233,7 +289,6 @@ body {
                     </div>
                 </div>
             </div>
-
             <div class="item-block">
                 <span class="number-cell">4</span>
                 <div class="item-block-content">
@@ -244,45 +299,31 @@ body {
                     </div>
                 </div>
             </div>
-
             <div class="item-block">
                 <span class="number-cell">5</span>
                 <div class="item-block-content">
                     <div class="item-block-title">Relevant Legislation</div>
                     <div class="item-block-desc">The object of the declaration described in point 4 is in conformity with the relevant legislation (refer to the other Union acts applied):</div>
-                    <ul class="legislation-list">
-                        <li>(1) Regulation (EC) No 1907/2006 &mdash; REACH</li>
-                        <li>(2) Regulation (EU) 2023/1542 &mdash; Batteries and waste batteries</li>
-                        <li>(3) Directive 2011/65/EU &mdash; RoHS</li>
-                        <li>(4) Directive 2014/30/EU &mdash; EMC</li>
-                        <li>(5) UN 38.3 &mdash; Transport safety of lithium batteries</li>
-                    </ul>
+                    <div class="para">(1) Regulation (EC) No 1907/2006&mdash;REACH<br>(2) Regulation (EU) 2023/1542 &mdash; Batteries and waste batteries<br>(3) Directive 2011/65/EU&mdash;RoHS<br>(4) Directive 2014/30/EU &mdash; EMC<br>(5) UN 38.3&mdash; Transport safety of lithium batteries</div>
                 </div>
             </div>
-
             <div class="item-block">
                 <span class="number-cell">6</span>
                 <div class="item-block-content">
                     <div class="item-block-title">Harmonised Standards</div>
-                    <ul class="legislation-list">
-                        <li>EN IEC 62133-2:2017 + A1:2021 &mdash; Safety of portable rechargeable Li-ion cells/batteries</li>
-                        <li>EN IEC 61000-6-3:2021 &mdash; Electromagnetic compatibility (EMC)</li>
-                        <li>UN Manual of Tests and Criteria, Part III, Section 38.3 &mdash; Lithium battery transport test</li>
-                    </ul>
+                    <div class="para">EN IEC 62133-2:2017 + A1:2021 &mdash; Safety of portable rechargeable Li-ion cells/batteries<br>EN IEC 61000-6-3: 2021 &mdash; Electromagnetic compatibility (EMC)<br>UN Manual of Tests and Criteria. Part III. Section 38.3 - Lithium battery transport test</div>
                 </div>
             </div>
-
             <div class="item-block" style="border-bottom:none;">
                 <span class="number-cell">7</span>
                 <div class="item-block-content">
                     <div class="item-block-title">Additional Information</div>
                     <div class="item-row"><div class="item-label">Signed for and on behalf of</div><div class="item-value">Shenzhen EPT Battery Co., Ltd.</div></div>
                     <div class="item-row"><div class="item-label">Place and date of issue</div><div class="item-value">Shenzhen, 2026.9.1</div></div>
-                    <div class="item-row"><div class="item-label">Name</div><div class="item-value">Evan Xiong (熊黄文)</div></div>
+                    <div class="item-row"><div class="item-label">Name</div><div class="item-value">Evan Xiong</div></div>
                     <div class="item-row"><div class="item-label">Position</div><div class="item-value">Quality Director</div></div>
                 </div>
             </div>
-
             <div class="scan-section">
                 <div class="scan-title">Original Signed Declaration</div>
                 <div class="scan-desc">Scanned copy of the signed original document (with company stamp)</div>
