@@ -245,9 +245,10 @@ img, iframe { max-width: 100%; }
     box-shadow: 0 0 0 5px #ffffff;
 }
 
-.langbar { background:#f7f3fa; border-bottom:1px solid #e5dcef; padding:12px 16px; }
+.langbar { background:#f4eef9; border-bottom:1px solid #d9c9e8; padding:12px 16px; }
 .langbar-inner { max-width:900px; margin:0 auto; }
-.langbar-label { display:block; font-size:12.5px; font-weight:600; color:#6a1b9a; letter-spacing:.4px; margin-bottom:8px; text-transform:uppercase; }
+.langbar-label { display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; color:#6a1b9a; letter-spacing:.5px; margin-bottom:9px; text-transform:uppercase; }
+.langbar-globe { width:17px; height:17px; flex:0 0 auto; fill:none; stroke:#6a1b9a; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
 .langbar-grid { display:flex; flex-wrap:wrap; gap:6px; list-style:none; }
 .langbar-grid li { display:flex; }
 .lang-btn { padding:5px 11px; border:1.5px solid #6a1b9a; border-radius:16px; background:#fff; color:#6a1b9a; font-size:12.5px; cursor:pointer; transition:background .15s,color .15s; font-family:inherit; }
@@ -282,7 +283,6 @@ img, iframe { max-width: 100%; }
 /* ---------- 手机端（微信扫码主场景）可读性 ----------
    旧版 600px 查询反而把正文缩到 13px/12px，手机上根本读不清。
    这里在其后声明，同特异性靠后者胜，把字号提到移动端舒适线。 */
-.lang-toggle { display: none; }
 
 @media (max-width: 600px) {
     .header { padding: 22px 20px; }
@@ -300,34 +300,30 @@ img, iframe { max-width: 100%; }
     .footer { padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
 }
 
-/* 语言条折叠：窄屏默认收起成一枚「当前语言 ▾」按钮，点开才铺开 24 枚。
-   无 JS 时按钮带 hidden 属性、列表保持展开 —— 渐进增强，功能不丢。 */
-.lang-toggle:not([hidden]) {
-    display: none; /* 桌面不出现 */
-}
+/* ---------- 手机端语言选择：全部平铺，一眼看到有哪些语言 ----------
+   不做折叠。用自适应网格把 24 种语言铺成 4 列（小屏 3 列），
+   每枚按钮最小 80px 宽、38px 高，长语言名（Slovenščina）也能完整显示、不截断。 */
 @media (max-width: 780px) {
-    .lang-toggle:not([hidden]) {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 16px;
-        min-height: 44px;                 /* WCAG 2.5.8 触摸目标 */
-        border: 1.5px solid #6a1b9a;
-        border-radius: 10px;
-        background: #fff;
-        color: #6a1b9a;
-        font-size: 15px;
-        font-weight: 600;
-        font-family: inherit;
-        cursor: pointer;
+    .langbar { padding: 13px 14px 14px; }
+    .langbar-label { font-size: 12px; margin-bottom: 10px; }
+    .langbar-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+        gap: 5px;
     }
-    .lang-caret { font-size: 12px; transition: transform .15s; }
-    .langbar.open .lang-caret { transform: rotate(180deg); }
-    .langbar.collapsed .langbar-grid { display: none; }
-    .langbar.collapsed .langbar-label { display: none; }
-    .langbar.open .langbar-grid { margin-top: 10px; }
-    .langbar .lang-btn { padding: 9px 14px; font-size: 13.5px; }  /* 高约 41px，触摸友好 */
-    .langbar-inner { padding: 0 2px; }
+    .langbar-grid li { display: flex; }
+    .lang-btn {
+        width: 100%;
+        min-height: 38px;
+        padding: 6px 4px;
+        border-radius: 9px;
+        font-size: 12.5px;
+        line-height: 1.35;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    /* 小屏放不下 4 列时自动降为 3 列，仍不截断 */
+    .langbar-inner { padding: 0; }
 }
 </style>
 </head>
@@ -335,10 +331,13 @@ img, iframe { max-width: 100%; }
 <a class="skip-link" href="#main" data-t="skip">Skip to main content</a>
 <nav class="langbar" id="langNav" aria-label="Page language">
     <div class="langbar-inner">
-        <span class="langbar-label" data-t="lang_label">Language</span>
-        <button type="button" class="lang-toggle" id="langToggle" aria-expanded="true" aria-controls="langList" hidden>
-            <span id="langToggleName">English</span><span class="lang-caret" aria-hidden="true">&#9662;</span>
-        </button>
+        <p class="langbar-label">
+            <svg class="langbar-globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18M12 3c2.5 2.7 3.8 5.8 3.8 9S14.5 18.3 12 21c-2.5-2.7-3.8-5.8-3.8-9S9.5 5.7 12 3z"></path>
+            </svg>
+            <span data-t="lang_label">Language</span>
+        </p>
         <noscript><p class="noscript-note" lang="en">JavaScript is switched off in this browser, so the
         language selector cannot run. The complete English version of this page is shown instead &mdash;
         all battery information and the English Declaration of Conformity below are fully readable.</p></noscript>
@@ -525,8 +524,6 @@ var NAMES = {"bg": "Български", "cs": "Čeština", "da": "Dansk", "de":
         });
         var native = NAMES[code] || code.toUpperCase();
         if (cap) cap.textContent = native;
-        var tn = document.getElementById('langToggleName');
-        if (tn) tn.textContent = native;
         // alt / title 是属性值，不解析 HTML 实体，必须用已渲染的 textContent
         var t = document.querySelector('[data-t="d3t"]');
         var label = ((t ? t.textContent : d.d3t) + ' \u2014 ' + native).replace(/\s+/g, ' ').trim();
@@ -535,35 +532,11 @@ var NAMES = {"bg": "Български", "cs": "Čeština", "da": "Dansk", "de":
         try { localStorage.setItem('r2412_lang', code); } catch (e) {}
     }
 
+    // 语言按钮：点一下整页（I/II/III 三节 + DoC 件）切成该语言。
+    // 手机上 24 种语言全部平铺可见，不折叠 —— 用户一眼就能找到自己的语言。
     btns.forEach(function (b) {
-        b.addEventListener('click', function () {
-            applyLang(b.dataset.lang);
-            // 手机上选完语言自动收起面板，让位给产品信息
-            if (mqMobile.matches && nav.classList.contains('open')) setCollapsed(true);
-        });
+        b.addEventListener('click', function () { applyLang(b.dataset.lang); });
     });
-
-    // ---- 语言条折叠（渐进增强：仅窄屏 + JS 可用时才生效）----
-    // 无 JS 时按钮带 hidden、列表保持展开，功能不丢。
-    var toggle = document.getElementById('langToggle');
-    var toggleName = document.getElementById('langToggleName');
-    var mqMobile = window.matchMedia('(max-width: 780px)');
-    function setCollapsed(collapse) {
-        nav.classList.toggle('collapsed', collapse);
-        nav.classList.toggle('open', !collapse);
-        if (toggle) toggle.setAttribute('aria-expanded', collapse ? 'false' : 'true');
-    }
-    if (toggle) {
-        toggle.removeAttribute('hidden');
-        toggle.addEventListener('click', function () {
-            // 收起态点击 → 展开；展开态点击 → 收起
-            setCollapsed(!nav.classList.contains('collapsed'));
-        });
-        var onMq = function (e) { setCollapsed(e.matches); };
-        if (mqMobile.addEventListener) mqMobile.addEventListener('change', onMq);
-        else if (mqMobile.addListener) mqMobile.addListener(onMq);
-        setCollapsed(mqMobile.matches);
-    }
 
     var saved = 'en';
     try {
