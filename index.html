@@ -681,5 +681,29 @@ var NAMES = {"bg": "Български", "cs": "Čeština", "da": "Dansk", "de":
     });
 })();
 </script>
+
+<script>
+/* ---- 一物一码：?sn=<序列号> ----
+   编码规则（尾部固定 13 位，料号前缀长度自适应）：
+   [电池料号·数字串] [生产日期3] [电芯代码1] [零部件版本1·0-9] [流水码5·00001-99999] [供应商代码3]
+   例：030202000000556 67D E 0 00001 S3B
+   每颗电池的二维码 = 本页URL + 尾部 ?sn=完整序列号（可与 ?lang= 叠加，顺序不限）。
+   页面读取后把真实序列号按规则分段显示在 Batch number/serial number 行；
+   无参数或格式不符时保持原通用文案，完全向后兼容。 */
+(function () {
+    var m = /[?&]sn=([0-9A-Za-z]{26,30})(?:&|$)/.exec(window.location.search);
+    if (!m) return;
+    var raw = m[1].toUpperCase();
+    var hit = /^(\d{2,17})([0-9A-Z]{3})([0-9A-Z])(\d)(\d{5})([0-9A-Z]{3})$/.exec(raw);
+    if (!hit) return;
+    var fmt = hit[1] + ' ' + hit[2] + ' ' + hit[3] + ' ' + hit[4] + ' ' + hit[5] + ' ' + hit[6];
+    var el = document.querySelector('[data-t="v_batch"]');
+    if (!el) return;
+    var set = function () { if (el.textContent !== fmt) el.textContent = fmt; };
+    set();
+    /* 语言切换会重写该节点文本，观察并在重写后恢复序列号 */
+    new MutationObserver(set).observe(el, { childList: true, characterData: true, subtree: true });
+})();
+</script>
 </body>
 </html>
